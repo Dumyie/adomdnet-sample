@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MdxFunctions>
+    <Group Name="Member Properties">
+        <Item>Children</Item>
+        <Item>DataMember</Item>
+        <Item>FirstChild</Item>
+        <Item>FirstSibling</Item>
+        <Item>Ignore</Item>
+        <Item>Lag(&lt;&lt;number&gt;&gt;)</Item>
+        <Item>LastChild</Item>
+        <Item>LastSibling</Item>
+    </Group>
+    <Group Name="Member Functions">
+        <Item Url="ms-help://MS.SQLCC.v9/MS.SQLSVR.v9.en/mdxref9/html/b5bf2ce4-20df-4ebc-97eb-e44a6f64cc50.htm">Ancestor(Member_Expression, Level_Expression | Numeric_Expression)</Item>
+        <Item Url="ms-help://MS.SQLCC.v9/MS.SQLSVR.v9.en/mdxref9/html/d103b0f5-e794-4828-aa57-43f6918a0749.htm">Descendants( { Member_Expression | Set_Expression } [ , ( Level_Expression | Numeric_Expression ) [ ,Desc_Flag ] ] )</Item>
+    </Group>
+</MdxFunctions>
