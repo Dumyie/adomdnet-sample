@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language Name="SQL" Startblock="Code">
+    <FileTypes>
+        <FileType Extension=".MDX" Name="MDX file"/>
+    </FileTypes>
+
+    <Block Name="Code" Style="Code" IsMultiline="true">
+        <Scope Start="((?i)(case)(?!(\s)+(tran)))" End="((?i)end)" StartIsComplex="true" EndIsComplex="true" Style="C1" Text="begin...end" StartISKeyword="true" EndIsKeyword="true" />
+        <Scope Start="((?i)(begin)(?!(\s)+(tran)))" End="((?i)end)" StartIsComplex="true" EndIsComplex="true" Style="C1" Text="begin...end" StartISKeyword="true" EndIsKeyword="true" />
+
+
+        <!-- Keywords that can exist inside this block -->
+        <Keywords>
+            <PatternGroup Name="C1" Style="C1" CaseSensitive="false" NormalizeCase="false">
+                <Patterns>
+                    select on rows columns filters from where nonempty create with member set
+                </Patterns>
+                <Pattern Text="select" IsSeparator="true"/>
+                <Pattern Text="with" IsSeparator="true" />
+
+            </PatternGroup>
+            <PatternGroup Name="C2" Style="C2" CaseSensitive="false" NormalizeCase="false">
+                <Patterns>
+                    ABSOLUTE ACTIONPARAMETERSET ADDCALCULATEDMEMBERS AFTER AGGREGATE all allmembers ancestor ancestors and as asc ascendants average axis basc bdesc before before_and_after bottomcount bottompercent bottomsum by cache calculate calculation calculationcurrentpass calculationpasvalue calculations call cell cellformulasetlist chapters children clear closingperiod coalesceempty column  correlation count cousin covariance covariancen create createpropertyset createvirtualdimension crossjoin cube current currentcube currentmember default_member defaultmember
+                    Desc descendants description dimension dimensions distinct distinctcount drilldownlevel drilldownlevelbottom drilldownleveltop drilldownmember drilldownmemberbottom drilldownmembertop drilluplevel drillupmember drop empty end error except excludeempty extract false filter firstchild firstsibling for freeze from generate global group grouping head hidden hierarchize hierarchy ignore iif includeempty index intersect is isancestor isempty isgeneration isleaf issibling item lag lastchild lastperiods lastsibling lead
+                    leaves level levels linkmember linreginercept linregpoint linregr2 linregslope linregvariance lookupcube max measure median members membertostr min mtd name nameofset nest nextmember no_allocation no_properties non nonemptycrossjoin not_related_to_facts null openingperiod or pages parallelperiod parent pass periodstodate post predict prevmember properties property qtd rank recursive relateve rollupchildren root scope selections select self self_and_after self_and_before
+                    self_before_after session set settoarray settostr sort stddev stddevp stdev stdevp storage stripcalculatedmembers strtomember strtoset strtotuple strtoval strtovalue subset sum tail this toggledrillstate topcount toppercent topsum totals tree true tupletostr type union unique uniquename update use use_equal_allocation use_weighted_allocation use_weighted_increment username validmeasure value var variance variancep varp visual visualtotals where with wtd xor ytd
+                </Patterns>
+            </PatternGroup>
+            <PatternGroup Name="C3" Style="C3" CaseSensitive="false" NormalizeCase="false">
+                <Patterns>
+                    AllMembers Members Count children current currentmember currentordinal datamember defaultmember firstchild firstsibling lag lastchild lastsibling lead nextmember parent prevmember properties siblings
+                    Levels.Count hierarchy level levels name ordinal uniquename item
+                    membervalue value
+                </Patterns>
+            </PatternGroup>
+            <PatternGroup Name="C5" Style="C5" CaseSensitive="false" NormalizeCase="false">
+                <Patterns>
+                    kpicurrenttimemember kpigoal kpistatus kpitrend kpivalue kpiweight
+                </Patterns>
+            </PatternGroup>
+            <PatternGroup Name="C6" Style="C6" CaseSensitive="false" NormalizeCase="false">
+                <Patterns>
+                    connections cpu_busy cursor_rows datefirst dbts error fetch_status identity idle io_busy langid language lock_timeout max_connections max_precision nestlevel options packet_errors packet_received pack_sent patindex procid remserver rowcount servername servicename spid textptr textsize textvalid timeticks total_errors total_read total_write trancount version
+                </Patterns>
+            </PatternGroup>
+            <PatternGroup Name="C7" Style="C7" CaseSensitive="false" NormalizeCase="false">
+                <Patterns>
+                    abs acos app_name ascii asin atan atn2 avg binary_checksum case cast ceiling charindex checksum checksum_agg coalesce collationproperty col_length col_name columns_updated columnproperty convert cos cot count count_big current_timestamp current_user cursor_status databaseproperty databasepropertyex datalength dateadd datediff datename datepart day db_id db_name degrees difference exp file_id file_name filegroup_id filegroup_name filegroupproperty fileproperty floor fn_helpcollations fn_listextendedproperty fn_servershareddrives fn_trace_geteventinfo fn_trace_getfilterinfo fn_trace_getinfo fn_trace_gettable fn_virtualfilestats formatmessage fulltextcatalogproperty fulltextserviceproperty getansinull getdate getutcdate grouping has_dbaccess host_id host_name  ident_current ident_incr ident_seed index_col indexkey_property indexproperty is_member is_srvrolemember isdate isnull isnumeric left len log log10 lower ltrim max min month newid nullif object_id object_name objectproperty parsename patindex permissions pi power quotename radians rand replace replicate reverse right round rowcount_big rtrim scope_identity serverproperty sessionproperty session_user sign sin soundex space sqare sql_variant_property sqrt stats_date stdev stdevp str stuff substring sum suser_sid suser_sname system_user tan typeproperty unicode upper user_id user_name var varp year
+                </Patterns>
+            </PatternGroup>
+            <PatternGroup Name="Numbers" Style="Number">
+                <Pattern Text="([0-9]+)" IsComplex="true" />
+            </PatternGroup>
+            <PatternGroup Name="ServerVariables" Style="ServerVariable">
+                <Pattern Text="(@@[a-zA-Z]+[a-zA-Z0-9]*)" IsComplex="true" />
+            </PatternGroup>
+            <PatternGroup Name="Variables" Style="Variable">
+                <Pattern Text="(@[a-zA-Z]+[a-zA-Z0-9]*)" IsComplex="true" />
+            </PatternGroup>
+        </Keywords>
+        <!-- Operators that can exist inside this block -->
+        <Operators>
+            <PatternGroup name="Operators" Style="Operator">
+                <Patterns>
+                    [ ] { } @ % " &amp; * ( ) - + | \ / [ ] ; &quot; ' &lt; &gt; , .
+                </Patterns>
+            </PatternGroup>
+        </Operators>
+        <!-- Blocks that can exist inside this block -->
+        <ChildBlocks>
+            <Child Name="Singleline Comment" />
+            <Child Name="String" ></Child>
+            <Child Name="Code" />
+        </ChildBlocks>
+    </Block>
+    <Block Name="Singleline Comment" Style="Comment"  IsMultiline="false">
+        <Scope Start="--" End="" Style="Comment" />
+    </Block>
+    <Block Name="String" Style="String" IsMultiline="true">
+        <Scope Start="&quot;" End="&quot;" EscapeChar="" Style="String" />
+        <Scope Start="'" End="'" EscapeChar="" Style="String" />
+
+    </Block>"
+    <Style Name="Code" ForeColor="" BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="Scope" ForeColor="" BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="Comment" ForeColor="Green" BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="String" ForeColor="SteelBlue" BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="Number" ForeColor="Teal" BackColor="" Bold="true" Italic="false" Underline="false" />
+    <Style Name="ServerVariable" ForeColor="DarkMagenta" BackColor="" Bold="true" Italic="false" Underline="false" />
+    <Style Name="Variable" ForeColor="Magenta" BackColor="" Bold="true" Italic="false" Underline="false" />
+    <Style Name="Keyword" ForeColor="Blue" BackColor="" Bold="true" Italic="false" Underline="false" />
+    <Style Name="Operator" ForeColor="Black" BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="C1" ForeColor="Blue" 	BackColor="" Bold="true" Italic="false" Underline="false" />
+    <Style Name="C2" ForeColor="DarkBlue" 	BackColor="" Bold="true" Italic="false" Underline="false" />
+    <Style Name="C3" ForeColor="DarkRed" 	BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="C4" ForeColor="Red" 	BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="C5" ForeColor="DarkRed" 	BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="C6" ForeColor="DarkBlue" 	BackColor="" Bold="false" Italic="false" Underline="false" />
+    <Style Name="C7" ForeColor="DarkGreen" 	BackColor="" Bold="true" Italic="false" Underline="false" />
+    <Style Name="C8" ForeColor="Silver" 	BackColor="" Bold="false" Italic="false" Underline="false" />
+</Language>
